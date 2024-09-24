@@ -274,8 +274,8 @@
     - 彻底删除commit和大文件提交：git branch-filter删除所有记录中的大文件并强制推送远程库
     - git rebase commit整理：旧提交依然存在于隐藏分支
     - 只保留最新的版本
-        - 本地：设置--depth==1然后克隆，从而实现本地只有最后一个版本的记录
-        - 远程仓库：
+        - 本地方案一：设置--depth==1然后克隆，从而实现本地只有最后一个版本的记录
+        - 本地和远程方案二：创建并切换到lastest_branch分支git checkout --orphan latest_branch; 添加所有文件git add -A; 提交更改git commit -am "删除历史版本记录，初始化仓库"; 删除分支git branch -D main; 将当前分支重命名git branch -m main; 强制更新远程库git push -f origin main.
 
 - FQ
     - 在git bash命令行git commit -m "messages"可以正常commit，但是使用vscode工具栏commit一直卡住：vs code升级后，原来提交代码时，是在vscode里直接填写message的，升级之后没有了，会直接对代码进行提交，这样的话导致服务器拒绝。
@@ -336,6 +336,26 @@ pip只是包管理器，无法对环境进行管理，如果想在指定环境�
 |库|作用|
 |-|-|
 |pdf2docx|pdf处理|
+
+# Zotero
+- 基本信息
+    - 数据目录：zotero.sqlite 文件存储的是文献条目的信息，笔记以及标签；\storage 目录下存放的是文献的附件，对应生成一个以 8 个字符命名的子文件夹。
+    - 引用样式设置
+    - 第三方云平台同步：坚果云、微软的 OneDrive。
+    - 插件：注意版本兼容
+        > Sci-Hub Plugin for Zotero：下载文献；
+        Jasminum：兼容中文文献，在安装 Jasminum 插件时，如果想为知网下载的文献添加书签，还需要下载软件 PDFtk，同时在 首选项 中配置 PDFtk 的安装路径；
+        Zotero PDF Translate：翻译文献；
+        Zotero Better Notes：记笔记，Better Notes 提供了一些笔记模板，可以在这里下载。请注意，在命名模板时需要在名称前方加上关键词 [Item]。
+        
+- 使用浏览器插件批量导入文献的时候，会出现错误提示：保存此条目时出错。有时可以有时不行，不行的时候逐条导入。
+
+- 导入文献到 Zotero：不建议先下载 PDF 文件，再拖拽到 Zotero 中识别文献元数据，会识别失败或混乱。
+    > 1. 在浏览器中点击右上角 Zotero 插件导入；
+    > 2. 复制文献的 DOI 到 Zotero 中的通过标识符添加条目 。
+    > 3. 这样导入的文献条目可能没有相应的 PDF 附件，这时候有两种办法：
+    >> 下载好对应的 PDF 文件，右键条目 > 添加附件；
+    >> 下载 Sci-Hub 插件，通过插件下载 PDF 文件并添加到附件当中。
 
 
 
