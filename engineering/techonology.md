@@ -147,8 +147,8 @@ aaaaaaaaaaa是在运行时刻赋值的；放在栈中。 
 AB测试
 
 ## 数据
-
-![IMG_256](./media/image1.jpeg)
+![alt text](./_res/image.png)
+![IMG_256](./_res/image1.jpeg)
 
 数据存储系统：最常见的就是分布式文件系统HDFS；如果需要使用NoSQL数据库功能，HBase是基于HDFS实现的一个分布式NoSQL数据库。
 
@@ -180,7 +180,7 @@ Streaming（大数据准实时计算）、Flink
 S3领导的对象存储。MapReduce已被Spark取代，随着时间的推移，它也减少了对Hadoop的依赖。Yarn正在被Kubernetes等技术所取代。而Hive
 的查询引擎组件在性能和采用方面已经被Presto/Trino超越。
 
-![](./media/image2.png)
+![](./_res/image2.png)
 
 ### 数据仓库hive和数据库MySQL
 
@@ -335,7 +335,7 @@ arrival）、TDOA（time difference of arrival）。
 
 6.  UWB定位(ultra wide band)
 
-    ![IMG_256](./media/image3.jpeg)
+    ![IMG_256](./_res/image3.jpeg)
 
 -   原理：标签卡对外发送一次UWB信号，在标签无线覆盖范围内的所有基站都会收到无线信号。如果有两个已知坐标点的基站收到信号，标签距离两个基站的间隔不同，那么这两个基站收到信号的时间点是不一样的。
 
@@ -352,4 +352,4 @@ arrival）、TDOA（time difference of arrival）。
 1.  其他定位：ZigBee定位、UWB定位、低频触发定位、声波定位、光定位、地磁定位等。
 
 就抗多径和抗干扰方面，UWB明显好于WiFi、蓝牙；就传输距离来看，WiFi是最远的，UWB次之，蓝牙传输距离最近；在建设成本方面，UWB的成本要远远高于WiFi和蓝牙。
-![IMG_256](./media/image4.jpeg)
+![IMG_256](./_res/image4.jpeg)

@@ -251,13 +251,13 @@
 
         -   method
 
-        ![](./media/image1.png)
+        ![](./_res/image1.png)
 
     -   White test
 
-        ![](./media/image2.png)
+        ![](./_res/image2.png)
         Or
-        ![](./media/image3.png)
+        ![](./_res/image3.png)
 
     -   BP test
 
@@ -265,11 +265,11 @@
 
     -   在同方差的情况下$\sigma_i^2 = \sigma^2$，我们可以估计$\sigma^2$，在异方差的情况下，不可能估计$\sigma_i^2$，OLS下可以估计β的方差：
 
-        ![](./media/image4.png)
+        ![](./_res/image4.png)
 
     -   大多数情况下，方差的稳健估计会比标准的估计大些，Robust estimate of variance: multivariate case
         
-        ![](./media/image5.png)
+        ![](./_res/image5.png)
         heteroskedasticity-robust t statistic.
         heteroskedasticity-robust F test.
 
@@ -277,7 +277,7 @@
 
     -   Case I: The heteroskedasticity is known up to a multiplicative constant
 
-        ![](./media/image6.png)
+        ![](./_res/image6.png)
 
     -   Case II: The Heteroskedasticity Function Is Unknown
 
@@ -285,13 +285,13 @@
 
         -   First guess the heteroskedasticity function form and estimate it
 
-            ![](./media/image7.png)
-            ![](./media/image8.png)
-            ![](./media/image9.png)
+            ![](./_res/image7.png)
+            ![](./_res/image8.png)
+            ![](./_res/image9.png)
 
     -   Special case for FGLS
 
-        ![](./media/image10.png)
+        ![](./_res/image10.png)
 
     -   GLS is BLUE，How about FGLS? Is FGLS consistent?
 
@@ -304,37 +304,35 @@
         -   For small sample size, it is not clear which one is better
 
 ### 内生问题
-- [内生问题根源](https://blog.csdn.net/celine0227/article/details/120770535)：致使自变量和误差项相关的因素
-    - 双向因果：Y、X互为因果
-    - 样本选择偏差：样本选择不随机。Hansen在《ECONOMETRIS (V2021)》第27章第9小节给出了推导，并且还介绍了一种流行的解决方法一一Heckman两步法。
-    - 自选择偏差：解释变量选择不随机，即可能存在其他因素影响解释变量，这些无法观测或遗漏的因素若被归入干扰项，造成内生。
-    - 缺失关键控制变量：X1同时影响X和Y，需要控制X1——也就是对X1进行分层，才能判断X对Y的因果效应；若要判断X1对Y的因果效应，则不能控制X——也就是不能对X分层，因为X只是X1影响Y的一条路径，并不代表X1对Y的全部影响；否则会导致辛普森悖论。
-    - 观测误差
-        - 如果误差发生在被解释变量上，一般没问题，误差可以归入模型误差
-        - 如果误差发生在解释变量上，这时就有问题。看下面一般情况：
-            ![](./media/image11.png)
-            ![](./media/image12.png)
-
-- 影响
+- 内生问题(自变量和误差项相关)的影响：
     - 有偏
     - 不一致
     - 对预测来说，没有问题：
-        - $Y = X\beta + \varepsilon，E( \varepsilon | X) \neq 0$
-        - 可以假设$\varepsilon = Xb + \mu$
-        - 所以Y对X的回归等价于$Y = X\beta + Xb + \mu = X(b + \beta) + \mu$
-        - 估计出$b+\beta$，有偏，但预测反而更好
-        - $\hat{Y} = E( Y | X = X_0) = X_0\beta + E( \varepsilon | X = X_0 )=X_{0}(\beta + b)$
+        > 估计$Y = X\beta + \varepsilon$过程中，$E( \varepsilon | X) \neq 0$，假设$\varepsilon = Xb + \mu$，所以Y对X的回归等价于$Y = X\beta + Xb + \mu = X(\beta + b) + \mu$，估计的$\beta$实际是$\beta +b$，预测反而更好。
 
-- 处理
+- [问题根源](https://blog.csdn.net/celine0227/article/details/120770535)
+    - 双向因果：$Y$、$X$互为因果
+    - 因果倒置：类似双向因果。设定模型为$y=\beta x+u$，真实关系为$x=\beta^{-1}y+(-\beta^{-1}u)$，设定模型中的$x$和随机扰动项$u$相关。
+    - 样本选择偏差：样本选择非随机。Hansen在《ECONOMETRIS (V2021)》第27章第9小节给出了推导，并且还介绍了一种流行的解决方法一一Heckman两步法。
+    - 自选择偏差：解释变量选择非随机，即可能存在其他因素影响解释变量，这些无法观测或遗漏的因素若被归入干扰项，造成内生。
+        - 缺失关键控制变量：X1同时影响X和Y，需要控制X1——也就是对X1进行分层，才能判断X对Y的因果效应；若要判断X1对Y的因果效应，则不能控制X——也就是不能对X分层，因为X只是X1影响Y的一条路径，并不代表X1对Y的全部影响；否则会导致辛普森悖论。
+        - 例如交叉项的一阶项缺失，缺失的一阶项被归入误差，使得误差和交叉项相关。
+    - 观测误差
+        - 如果误差发生在被解释变量上，一般没问题，误差可以归入模型误差。
+        - 如果误差发生在解释变量上，这时就有问题。看下面一般情况：
+            ![](./_res/image11.png)
+            ![](./_res/image12.png)
+
+- [处理](https://blog.csdn.net/weixin_43902450/article/details/119491388)
     - 工具变量法
     - FE
-    - PSM
+    - 可观测变量选择问题可直接用PSM处理，不可观测变量选择问题可用PSM-DID，RDD处理。
 
 ### 时间序列里的问题
 
 -   违背独立随机抽样：Durbin-Watson Test，D-W statistic symmetrically distributed around 2, if it is far from 2, there is autocorrelation.没有DW统计量的分布，但知道DL<DW<DU, DW与DL（DU）的误差很小，并且知道DL和DU的分布。
 
-    ![](./media/image13.png)
+    ![](./_res/image13.png)
 
     -   影响：无偏的、一致的？、not BLUE
 
@@ -442,8 +440,8 @@
 
     -   一种是随机效应模型（Random Effects Regression Model）。如果固定效应模型中的截距项包括了截面随机误差项和时间随机误差项的平均效应，并且这两个随机误差项都服从正态分布，则固定效应模型就变成了随机效应模型。
 
-    ![C:\\Users\\ADMINI\~1.SC-\\AppData\\Local\\Temp\\1555169449(1).png](./media/image14.png)
-    ![C:\\Users\\ADMINI\~1.SC-\\AppData\\Local\\Temp\\1555169493(1).png](./media/image15.png)
+    ![](./_res/image14.png)
+    ![](./_res/image15.png)
 
 -   拟合优度：Panel模型中有三个R2的定义，它们反映的都是x对y的解释力度，但具体计算上有差别，SAS报告的是within effect的R2。
 
@@ -485,11 +483,11 @@
 
 -   Weak stationary
 
-    ![](./media/image16.png)
+    ![](./_res/image16.png)
 
 -   Strong stationary
 
-    ![](./media/image17.png)
+    ![](./_res/image17.png)
 
 -   序列平稳性检验
 
@@ -499,7 +497,7 @@
 
     -   ADF（Augment Dickey-Fuller ）检验
 
-        ![](./media/image18.png)
+        ![](./_res/image18.png)
         检验的假设都是针对H1: δ<0，检验H0：δ=0，即存在一单位根。
 
 ### Identifying ARMA model
@@ -686,9 +684,9 @@ $$y_t = \alpha + \beta_1y_{t-1} + \cdots + \beta_py_{t-p} + \varepsilon_t + \the
 
         -   Variance decompositions is check how does the variance of forecast error for future y depend on the variance of current x
 
-            ![](./media/image19.png)
-            ![](./media/image20.png)
-            ![](./media/image21.png)
+            ![](./_res/image19.png)
+            ![](./_res/image20.png)
+            ![](./_res/image21.png)
 
     - Granger Causality
 

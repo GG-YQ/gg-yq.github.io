@@ -81,6 +81,13 @@
     ```
 
 # VSCode
+- 基本设置
+    - 用户设置 (User Settings)
+        - 用户属于全局设置
+        - 设置存储在一个特定的文件中，通常位于用户目录下。
+    - 工作区设置 (Workspace Settings)
+        - 工作区设置仅适用于特定的工作区或项目，这些设置可以覆盖用户设置。
+        - 设置存储在项目目录下的 .vscode/settings.json 文件中。
 - 插件安装：推荐登陆账号使用Settings Sync功能同步设置、插件<a id="vsc"></a>
     |插件类型|插件名称|
     |-|-|
@@ -335,7 +342,11 @@ pip只是包管理器，无法对环境进行管理，如果想在指定环境�
 ## 常用库
 |库|作用|
 |-|-|
-|pdf2docx|pdf处理|
+|pdf处理|pdf2docx|
+|markdwon处理|mistune|
+|生成requirements.txt|pipreqs|
+|生成UML类图和包依赖关系图|graphviz+pyreverse|
+|生成函数调用图|graphviz+pycallgraph|
 
 # Zotero
 - 基本信息
