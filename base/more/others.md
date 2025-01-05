@@ -1,3 +1,39 @@
+# 系统
+- Linux
+    |系统|类型|优点|缺点|场景|说明|
+    |-|-|-|-|-|-|
+    |Debian Stable|Debian系|极其稳定；相对Ubuntu极简；软件包丰富|软件包相对更旧；不会包含最新的软件|个人、服务器|社区驱动|
+    |Debian Testing|Debian系||||介于Stable和Unstable|
+    |Debian Unstable|Debian系|||||
+    |Ubuntu|Debian系|使用相对友好；驱动和软件包相对丰富且新|过多的预安装；内部报错问题；Snap问题|个人、服务器||
+    |Mint|Debian系|||个人|Ubuntu主线替代|
+    |Rocky|Redhat系|企业级稳定|软件包可能不如Ubuntu最新|服务器||
+    |Alma|Redhat系|企业级稳定|软件包可能不如Ubuntu最新|服务器||
+    |CentOS|Redhat系|企业级稳定|软件包可能不如Ubuntu最新|服务器|停止维护|
+    |Fedora|Redhat系|使用非常友好；最新的技术和软件包|更新频繁不稳定|个人|社区驱动|
+    |Arch/Manjaro|Arch系|高度自定义、Linux内核最新、Archwiki、用户社区AUR|稳定性一般：滚动更新经常会滚挂|个人||
+    |openSUSE||||||
+    |Alpine、CoreOS|基于容器优化的操作系统|轻量级、安全||||
+    
+    > 最终方案：Debian
+    > 桌面选择：xfce实用，lxde配置要求低，kde花哨，gnome玄幻
+    
+
+- BSD：能对硬件进行比Linux更彻底的控制，系统稳定，使用场景如NAS数据库、路由器、web服务器、防火墙...，驱动和应用生态不如linux，不支持docker等
+    - FreeBSD
+    - 其他：OpenBSD、NetBSD
+
+
+- 安装
+    - U盘启动盘：Ventory作为引导可把系统镜像、其它PE镜像直接放到U盘里使用。
+        - 系统：将iso文件直接放到U盘
+        - 其他PE：转iso镜像再放到U盘
+    - NUC M15装机
+        - 制作系统安装引导盘
+        - DG格式化系统盘
+        - 从U盘启动安装程序(不拔)完成系统安装
+        - 安装驱动：安装NUC M15官方驱动，新win11版也适合win10系统，旧win11+10版camera驱动有问题；系统更新；Nvida官网显卡驱动；尽量避免第三方补充的驱动。
+
 # 关于目录
 - vscode打开文件：该文件即为根目录
     - 以"./"开头，代表当前目录和文件目录在同一个目录里，“./”也可以省略不写！
@@ -37,13 +73,7 @@
         5. 如果还是没有，则报错.
 
 # 软件安装
-- NUC M15装机
-    - 制作系统安装引导盘
-    - DG格式化系统盘
-    - 从U盘启动安装程序(不拔)完成系统安装
-    - 安装驱动：安装NUC M15官方驱动，新win11版也适合win10系统，旧win11+10版camera驱动有问题；系统更新；Nvida官网显卡驱动；尽量避免第三方补充的驱动。
-
-- 软件安装
+- PC软件
     |软件类型|软件安装|
     |-|-|
     |社交|微信(安装后文件保存位置设置为C:\gyq\mydocuments)；QQ(安装前数据文件位置选择C:\gyq\mydocuments)；腾讯会议；|
