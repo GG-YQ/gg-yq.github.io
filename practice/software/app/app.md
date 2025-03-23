@@ -1,5 +1,4 @@
-# 基础
-- [javascript](./javascript.md)
+# web
 ## http
 - 基本结构
     - 请求参数

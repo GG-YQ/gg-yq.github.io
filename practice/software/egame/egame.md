@@ -1,7 +1,30 @@
 # 基础
-- 引擎
-    - [Laya](./laya.md)
-    - [UE](./ue.md)
+## 引擎
+- [Laya](./laya.md)
+- [UE](./ue.md)
+## 用户心理
+- [八角行为分析](https://www.woshipm.com/ucd/6182509.html)：足够新奇、控制能力和失控复杂度平衡
+① 史诗意义与使命感
+② 进步与成就感 
+③ 创意授权与反馈
+④ 所有权与拥有感  
+⑤ 社交影响与关联性
+⑥ 稀缺性与渴望
+⑦ 未知性与好奇心
+⑧ 亏损与逃避心
+
+- [优雅的设计——通过简单的规则，创造多种不同的体验](https://www.jianshu.com/p/85f98bff7350)
+    - 棋牌类游戏只需要极简单的数条规定，就可以让玩家很快掌握玩法，但几乎每一局游戏都是全新的经历，需要不同的战术和打法。这就是变化的、不同的游戏体验。
+
+- [优雅2](https://zhuanlan.zhihu.com/p/143301011)
+
+- [微观个体遵循基本规则，在宏观上涌现出复杂行为](https://www.gameres.com/877322.html)
+
+- 其他参考书籍
+> 体验引擎：游戏设计全景探秘
+游戏设计的艺术
+游戏机制——高级游戏设计技术
+
 # 开发方案
 ## 策划
 1. 游戏定位
@@ -44,3 +67,29 @@ flowchart BT
     - 美术：[Blender](http://blender.org/)、Cycles(作者：Mr__Kin https://www.bilibili.com/read/cv2350089/)
         - [图片一键变成无缝平铺纹理](https://www.uisdc.com/unity-grenoble#:~:text=1.%20%E5%B0%86%E5%9B%BE%E7%89%87%E7%9A%84%E8%87%AA)
         - [Unity](https://unity-grenoble.github.io/website/demo/2020/10/16/demo-histogram-preserving-blend-make-tileable.html)
+
+# 行标
+- 游戏网站：taptap
+## 单体游戏项目
+minidayz 2.5D
+《末世旅人》
+金铲铲之战
+搬砖：火炬之光无限、修仙家族模拟器2
+## 开发架构
+美术：blender+python+AI，直接pip安装的blender模块是2.8待官网更新最新的方案
+音乐：？
+引擎：Laya、UE
+
+## 运营架构
+```mermaid
+flowchart LR
+subgraph 平台运营
+后端GithubPages:剧情美术音乐资源
+前端平台:平台服务
+end
+subgraph 单机运营
+本地Steam
+end
+```
+后端：(sqlite)
+前端：平台+代码

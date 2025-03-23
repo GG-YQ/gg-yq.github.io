@@ -1,64 +1,23 @@
+- [软件工具](../software.md#常用工具)
+
 # 系统
-- Linux
-    |系统|类型|优点|缺点|场景|说明|
-    |-|-|-|-|-|-|
-    |Debian Stable|Debian系|极其稳定；相对Ubuntu极简；软件包丰富|软件包相对更旧；不会包含最新的软件|个人、服务器|社区驱动|
-    |Debian Testing|Debian系||||介于Stable和Unstable|
-    |Debian Unstable|Debian系|||||
-    |Ubuntu|Debian系|使用相对友好；驱动和软件包相对丰富且新|过多的预安装；内部报错问题；Snap问题|个人、服务器||
-    |Mint|Debian系|||个人|Ubuntu主线替代|
-    |Rocky|Redhat系|企业级稳定|软件包可能不如Ubuntu最新|服务器||
-    |Alma|Redhat系|企业级稳定|软件包可能不如Ubuntu最新|服务器||
-    |CentOS|Redhat系|企业级稳定|软件包可能不如Ubuntu最新|服务器|停止维护|
-    |Fedora|Redhat系|使用非常友好；最新的技术和软件包|更新频繁不稳定|个人|社区驱动|
-    |Arch/Manjaro|Arch系|高度自定义、Linux内核最新、Archwiki、用户社区AUR|稳定性一般：滚动更新经常会滚挂|个人||
-    |openSUSE||||||
-    |Alpine、CoreOS|基于容器优化的操作系统|轻量级、安全||||
-    
-    > 最终方案：Debian
-    > 桌面选择：xfce实用，lxde配置要求低，kde花哨，gnome玄幻
-    
-
-- BSD：能对硬件进行比Linux更彻底的控制，系统稳定，使用场景如NAS数据库、路由器、web服务器、防火墙...，驱动和应用生态不如linux，不支持docker等
-    - FreeBSD
-    - 其他：OpenBSD、NetBSD
-
-
-- 安装
-    - U盘启动盘：Ventory作为引导可把系统镜像、其它PE镜像直接放到U盘里使用。
-        - 系统：将iso文件直接放到U盘
-        - 其他PE：转iso镜像再放到U盘
-    - NUC M15装机
-        - 制作系统安装引导盘
-        - DG格式化系统盘
-        - 从U盘启动安装程序(不拔)完成系统安装
-        - 安装驱动：安装NUC M15官方驱动，新win11版也适合win10系统，旧win11+10版camera驱动有问题；系统更新；Nvida官网显卡驱动；尽量避免第三方补充的驱动。
-
-# 关于目录
-- vscode打开文件：该文件即为根目录
-    - 以"./"开头，代表当前目录和文件目录在同一个目录里，“./”也可以省略不写！
-    - 以"../"开头：向上走一级，代表目标文件在当前文件所在的上一级目录；
-    - 以"../../"开头：向上走两级，代表父级的父级目录，也就是上上级目录，再说明白点，就是上一级目录的上一级目录
-    - 以"/"开头，代表根目录
-- 不同文件的执行
-    - .md
-        - `[](./)`: 文件链接vscode里"./"有效，docsify里所有链接处理均从根目录开始拼接，无效因此要使用`[](/)`
-        - `![](./)`: 图片链接由于直接渲染，在vscode和docsify均有效
-    - .py .ipynb：根目录为执行器powershell所指向的目录，一般同vscode
-
-
-# cmd
-- 查看盘符
-1. 进入diskpart：```diskpart```
-2. 查看分区：```list vol```；
-3. 查看磁盘：```list disk```、```select disk 0```、```detail disk```；
-
-- 切换目录
+- U盘启动盘：Ventory作为引导可把系统镜像、其它PE镜像直接放到U盘里使用。
+    - 系统：将iso文件直接放到U盘
+    - 其他PE：转iso镜像再放到U盘
+- NUC M15装机
+    - 制作系统安装引导盘
+    - DG格式化系统盘
+    - 从U盘启动安装程序(不拔)完成系统安装
+    - 安装驱动：安装NUC M15官方驱动，新win11版也适合win10系统，旧win11+10版camera驱动有问题；系统更新；Nvida官网显卡驱动；尽量避免第三方补充的驱动。
+- cmd查看盘符
+    1. 进入diskpart：```diskpart```
+    2. 查看分区：```list vol```；
+    3. 查看磁盘：```list disk```、```select disk 0```、```detail disk```；
+- cmd切换目录
     - 切换盘符：```D:```
     - 切换文件目录
         - 同一盘符下：```cd C:\gyq\topush```
         - 不同盘符下：```cd /d C:\gyq\topush```
-
 - 程序搜索顺序
     - 当然如果cmd命令中带路径，很明显只在指定目录中寻找文件，而不会到环境变量中去找，如果文件名不带后缀，则跟第一种情况一样，在指定目录中寻找这个名称的可执行文件或批处理文件执行，找不到报错；如果带后缀，若存在，则执行或用默认程序打开，若不存在，寻找该文件名+可执行文件或批处理文件后缀的文件来执行，找不到报错。
     - 输入的命令不带后缀（不带路径）
@@ -71,6 +30,18 @@
         3. 如果在当前目录中上述两种情况都未找到，才在环境变量所设置的那些目录中按上述顺序搜寻。先是按cmd命令所给的准确文件名查找，如果有，是程序或批处理则执行，是其它文件就用默认程序打开;
         4. 如果在环境变量目录中未找到该文件，再在环境变量目录中查找是否存在该文件名+可执行文件或批处理文件后缀（.exe、.bat、.msc等）的文件，如果找到了则执行之;
         5. 如果还是没有，则报错.
+
+# 关于目录
+- vscode打开文件：该文件即为根目录
+    - 以"./"开头，代表当前目录和文件目录在同一个目录里，“./”也可以省略不写！
+    - 以"../"开头：向上走一级，代表目标文件在当前文件所在的上一级目录；
+    - 以"../../"开头：向上走两级，代表父级的父级目录，也就是上上级目录，再说明白点，就是上一级目录的上一级目录
+    - 以"/"开头，代表根目录
+- 不同文件的执行
+    - .md
+        - `[](./)`: 文件链接vscode里"./"有效，docsify里所有链接处理均从根目录开始拼接，无效因此要使用`[](/)`或设置相对目录。
+        - `![](./)`: 图片链接由于直接渲染，在vscode和docsify均有效
+    - .py .ipynb：根目录为执行器powershell所指向的目录，一般同vscode
 
 # 软件安装
 - PC软件
@@ -88,6 +59,7 @@
     |其他|pytorch+cuda+cudnn; SunloginClient(远程控制)；PDF Password Remover；优启通；Fiddler、SAS、mysql、appium、Android Studio、wkhtmltox（可用python调用html转pdf）; Calibre/CAJViewer/ABBYY FineReader破解;|
     |免安装| Pandoc; ffmpeg; 科学上网(winXray、v2rayN、Clash、Qv2ray)；硬件管理(图吧工具箱；CrystalDiskInfo；3DMark)；网站视频下载(flvcd_youtube)。|
     |个人站点|gg-yq.github.io:基于github+giscus，用docsify创建|
+    |学术研究|researcher-app|
     |p2p架构通讯工具|Ring；Skype|
 
 - 手机软件  
@@ -111,6 +83,17 @@
     ```
 
 # VSCode
+- 基本使用——代码调试
+    - 安装编译器/解释器
+    - 安装相关插件辅助编写和调试
+        - (可选)Code Runner：支持运行多种编程语言的代码
+    - 调试
+        - F5/`Run`：配置默认的解释器或在`.vscode > launch.json`文件里配置，然后`run`，在`OUTPUT`查看结果
+        - 在内置终端运行：终端输入解释器和程序文件路径的命令，执行后在`TERMINAL`查看结果
+    - 其他
+        - tasks.json：定义开发流程，编码、构建、运行/调试、测试、打包
+        - launch.json：定义运行调试
+
 - 基本设置
     - 用户设置 (User Settings)
         - 用户属于全局设置
@@ -142,19 +125,18 @@
     > 1、分别在venv Folders 和 venv Path中添加虚拟环境文件目录路径，重启VScode设置生效
     2、查看——命令面板——Python: Select Interpreter——选择要使用的环境的python解释器
 
-## 常见问题
-
-- 安装包存在依然提示"import cannot resolved..."：python.analysis.extrapaths设置参考https://blog.csdn.net/weixin_43937790/article/details/128039587 https://learnscript.net/zh/python/development-tools/vscode/pylance/
-- 自动格式化需设置忽略排序：可能会产生import依赖问题
-- marp预览问题: MPE冲突
-    - To use Marp preview while using MPE, open the command palette via Ctrl (Cmd) + Shift + P and choose "Markdown: Open Preview to the Side" for VS Code built-in preview, instead of "Markdown: Markdown Preview Enhanced: Open Preview to the Side".
-    - To restore a VS Code original preview button from the toolbar, disable markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons the MPE extension setting.
-- marp在vscode中html支持选项：`Markdown > Marp: Enable HTML` from preference.
-- marp：图片引用'/'可预览但不能导出，需要改为'../../'
+- 常见问题
+    - 安装包存在依然提示"import cannot resolved..."：python.analysis.extrapaths设置参考https://blog.csdn.net/weixin_43937790/article/details/128039587 https://learnscript.net/zh/python/development-tools/vscode/pylance/
+    - 自动格式化需设置忽略排序：可能会产生import依赖问题
+    - marp预览问题: MPE冲突
+        - To use Marp preview while using MPE, open the command palette via Ctrl (Cmd) + Shift + P and choose "Markdown: Open Preview to the Side" for VS Code built-in preview, instead of "Markdown: Markdown Preview Enhanced: Open Preview to the Side".
+        - To restore a VS Code original preview button from the toolbar, disable markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons the MPE extension setting.
+    - marp在vscode中html支持选项：`Markdown > Marp: Enable HTML` from preference.
+    - marp：图片引用'/'可预览但不能导出，需要改为'../../'
 
 # git
 
-![](/_res/image1.png)
+![](./_res/image1.png)
 
 - 基本用法
     - 用vs打开项目文件夹，进入项目目录：所有git命令都要在项目空间下进行，如果需要新建或进入其他目录则需要执行下面的代码
@@ -328,77 +310,101 @@
 [安装docsify-cli](https://cloud.tencent.com/developer/article/1943482?from_column=20421&from=20421)
 
 
-# anaconda
-## 基本命令
+# Anaconda
+## 常用命令
+- 基本工具
+    > anaconda：python发行版，包含了python解释器、conda包管理器、常用的科学计算包。
+    conda：环境管理和包管理。conda可以跨环境安装包；可以安装一些pip无法安装的包。
+    pip：包管理。如果想在指定环境中使用pip进行安装包，则需要先切换到指定环境中，再使用pip命令；pip无法更新python，因为pip并不将python视为包；pip可以安装一些conda无法安装的包。
+    spyder：python IDE
+
+- 基本命令
     ```
-    帮助：conda -help 或者 conda -h
+    帮助
+    conda -v  #查看conda 版本
+    conda search <模糊词>  #模糊查找包
+    conda -help
+    conda -h
+    conda update -h
     
-    创建环境：conda create -n <envname> <python版本>，比如 conda create -n py2 python=2.7创建python2.7版本的环境，命名为py2。若没有指定python则只创建一个空conda环境。
-    查看已经安装成功的所有环境：conda env list
-    进入环境：conda activate <env name>
-    退出当前环境：conda deactivate 
-    conda remove -n <env name> --all	#删除指定环境中所有的包，即删除环境，比如conda remove -n pytorch1.2 --all
-    全部更新命令：conda update –-all
-    anoconda重置：anaconda-navigator –-reset
+    更新
+    conda update conda：更新conda，可能要以管理员身份运行。升级anaconda前需要先升级conda。环境指定？？？
+    conda update --all：更新所有包，包括anaconda发行版本身
+    conda update anaconda：升级anaconda
+    conda update spyder：升级spyder
+    conda update <package_name>：升级指定的包
 
+    包管理
+    conda list  #显示当前环境中所有的安装包
+    conda install <package name>  #当前环境中安装指定的包
+    conda remove <package name>  #当前环境中删除指定的包
+    pip install <package_name>  #当使用conda install无法进行安装时，可以使用pip进行安装
+    conda install --name <env_name> <package_name>  #在指定环境中安装包
 
-    conda install <package name>	#安装指定的包
-    conda list		#显示所有的安装包
-    conda remove/clean <package name>		#删除指定的包
-    conda --version 或者conda -V 		#查看conda 版本
-    在当前环境中安装包，：conda install <package_name>
-    当使用conda install无法进行安装时，可以使用pip进行安装：pip install <package_name>
-    在指定环境中安装包：conda install --name <env_name> <package_name>
-    更新所有包：conda update --all或conda upgrade –all
-    卸载当前环境中的包：conda remove <package_name>
-    搜索指定的包：conda search --full-name <package name> 
-    模糊查找：conda search <模糊词> 
+    环境管理
+    conda env list：查看已经安装成功的所有环境
+    conda create -n <envname> <python版本>：创建环境，比如 conda create -n py2 python=2.7创建python2.7版本的环境，命名为py2。若没有指定python则只创建一个空conda环境。
+    conda activate <env name>：进入环境
+    conda deactivate：退出当前环境
+    conda remove -n <env name> --all  #删除环境
+    
+    环境迁移
+    直接复制envs目录下的虚拟环境文件夹进行迁移：需要在目标电脑上配置环境路径。
+    使用conda-pack工具离线迁移：适用于断网环境。
+    使用conda环境文件environment.yml进行迁移：适用于跨平台和操作系统共享项目环境，需要联网。移植过来的环境只是安装了原环境里用conda install命令直接安装的包，用pip装的东西没有移植过来，需要重新安装。
+    使用pip要求文件requirements.txt进行迁移：不推荐，因为只会导出使用pip安装的依赖包，不适用于虚拟环境的迁移。
+    .yml和.txt结合进行迁移：从原环境导出.yml并将需要pip补充安装的包编进requirements.txt，在新环境中依次安装conda环境和pip要求。使用conda环境文件管理项目的大部分依赖，使用pip安装某些不包含在conda索引中的包。
     ```
-- pip和conda
-pip只是包管理器，无法对环境进行管理，如果想在指定环境中使用pip进行安装包，则需要先切换到指定环境中，再使用pip命令安装包。pip无法更新python，因为pip并不将python视为包。pip可以安装一些conda无法安装的包；conda也可以安装一些pip无法安装的包。因此当使用一种命令无法安装包时，可以尝试用另一种命令。
-
-- conda环境复现
-    > 1. conda env export $\Rarr$ environment.yaml: 环境会被保存在 environment.yaml文件中。
-    > 2. 当我们想再次创建该环境，可根据.yaml文件复现：conda env create -f environment.yaml。
-    > 3. 移植过来的环境只是安装了原环境里用conda install等命令直接安装的包，用pip之类装的东西没有移植过来，需要重新安装。
-    > > pip freeze $\Rarr$ requirements.txt
-    pip导入requirements.txt中列出的库到系统
-    pip install -r requirements.txt
 
 - 切换安装源
     - 切换镜像：pip3 install numpy scipy matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple
     - 切换本地whl：cd到whl目录，运行pip install xxx.whl
 
 ## 常用库
-|库|作用|
+|功能|库|
 |-|-|
 |pdf处理|pdf2docx|
 |markdwon处理|mistune|
 |生成requirements.txt|pipreqs|
 |生成UML类图和包依赖关系图|graphviz+pyreverse|
 |生成函数调用图|graphviz+pycallgraph|
+|Turn your data scripts into shareable web apps|streamlit|
+|测试库|pytest|
+
+# Docker
+相对conda的包依赖层环境隔离，docker可以实现系统层环境隔离
 
 # Zotero
-- 基本信息
-    - 数据目录：zotero.sqlite 文件存储的是文献条目的信息，笔记以及标签；\storage 目录下存放的是文献的附件，对应生成一个以 8 个字符命名的子文件夹。
-    - 引用样式设置
-    - 第三方云平台同步：坚果云、微软的 OneDrive。
-    - 插件：注意版本兼容
-        > Sci-Hub Plugin for Zotero：下载文献；
-        Jasminum：兼容中文文献，在安装 Jasminum 插件时，如果想为知网下载的文献添加书签，还需要下载软件 PDFtk，同时在 首选项 中配置 PDFtk 的安装路径；
-        Zotero PDF Translate：翻译文献；
+- [基础](https://pkmer.cn/Pkmer-Docs/11-zotero/zotero%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/zotero%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/)
+    - 设置存储路径：在首选项中设置数据存储位置，存储路径下的zotero.sqlite 文件存储的是文献条目的信息，笔记以及标签；\storage 目录下存放的是文献的附件，对应生成一个以 8 个字符命名的子文件夹。
+    - 关闭自动检索元数据：避免pdf导入卡顿
+    - 设置引用样式
+    - 设置第三方云平台同步：坚果云、微软的 OneDrive。
+    - 设置插件：注意版本兼容
+        > Sci-Hub Plugin for Zotero：下载文献；  
+        Jasminum：兼容中文文献，在安装 Jasminum 插件时，如果想为知网下载的文献添加书签，还需要下载软件 PDFtk，同时在 首选项 中配置 PDFtk 的安装路径；  
+        Zotero PDF Translate：翻译文献；  
         Zotero Better Notes：记笔记，Better Notes 提供了一些笔记模板，可以在这里下载。请注意，在命名模板时需要在名称前方加上关键词 [Item]。
-        
-- 使用浏览器插件批量导入文献的时候，会出现错误提示：保存此条目时出错。有时可以有时不行，不行的时候逐条导入。
 
-- 导入文献到 Zotero：不建议先下载 PDF 文件，再拖拽到 Zotero 中识别文献元数据，会识别失败或混乱。
+- 导入条目：建议先根据DOI等信息创建条目，然后将pdf等资源添加到条目附件；不建议直接根据PDF文件识别文献元数据，可能识别失败或混乱。如果直接保存PDF至Zotero，Zotero会自动为其抓取相关书目信息并创建条目。但如果Zotero无法成功抓取到PDF的相关信息，则不会创建条目，使得该PDF成为一个独立附件。因此可以通过其他方式为独立附件创建条目（如通过网页保存、通过识别符等方式），或者直接将其拖拽到某个条目中。
     > 1. 在浏览器中点击右上角 Zotero 插件导入；
     > 2. 复制文献的 DOI 到 Zotero 中的通过标识符添加条目 。
     > 3. 这样导入的文献条目可能没有相应的 PDF 附件，这时候有两种办法：
-    >> 下载好对应的 PDF 文件，右键条目 > 添加附件；
+    >> 下载好对应的 PDF 文件，右键条目 > 添加附件；  
     >> 下载 Sci-Hub 插件，通过插件下载 PDF 文件并添加到附件当中。
 
+- 条目更新
+    - 从分类移除条目：从分类中移除条目不影响其他分类，条目不会进入回收站，不会被删除。如果一个条目不属于任何分类，将在未分类条目一栏显示。
+    - 删除条目(delete)：删除条目，然后在回收站一栏彻底删除。如果附件是以链接形式存储，彻底删除条目的同时不会从磁盘删除附件。
 
+- 添加附件
+    - 副本附件(直接拖拽或从网页保存快照)：副本附件是Zotero处理附件的默认方式，Zotero会自动复制文件，并将文件副本存进Zotero数据文件夹中作为附件进行管理。
+    - 链接附件(拖拽时按住 Ctrl+Shift (Windows/Linux) 或 Cmd+Option (Mac))：链接附件指的是Zotero只保存附件在本地上的路径，而不是将附件复制进Zotero的数据文件夹中。由于链接附件使用的是本地路径，而本地路径并不能保证协作时其他成员能够成功访问附件，因此链接附件不支持Zotero的协作功能。如果您选择使用以链接形式保存附件，第三方插件ZotFile可以帮助您实现更高效的工作流。
+
+- 一些问题
+    |操作|问题|备注|
+    |-|-|-|
+    |批量导入|使用浏览器插件批量导入文献出现错误提示：保存此条目时出错。|尝试逐条导入|
 
 # WPS
 1. 显示格式TEXT()函数
@@ -425,12 +431,11 @@ pip只是包管理器，无法对环境进行管理，如果想在指定环境�
 7. 切片器
 8. 数组操作
 - 公式法：适合少量计算，公式完成后需要同时Alt+Enter或Ctrl+Shift+Enter
-```
-例如：根据B、A列条件，合并C列文本
-{=TEXTJOIN("；",1,IF(($B$2:$B$27=F$1)*($A$2:$A$27=$E2),$C$2:$C$27,""))}
-```
+    ```
+    例如：根据B、A列条件，合并C列文本
+    {=TEXTJOIN("；",1,IF(($B$2:$B$27=F$1)*($A$2:$A$27=$E2),$C$2:$C$27,""))}
+    ```
 - 透视表：自定义函数、Power Pivot
-
 
 
 # SQL

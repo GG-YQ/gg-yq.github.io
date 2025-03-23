@@ -1,4 +1,0 @@
-- js四种异步解决方案:回调函数、Promise、Generator、async/await
-    - 场景1定时任务：setTimeout、setInterval; 
-    - 场景2网络请求：[ajax异步请求](https://www.cnblogs.com/ryelqy/p/12201827.html)、基于promise的htttp客户端axios、动态创建img标签的加载; 
-    - 场景3事件监听器：addEventListener。
