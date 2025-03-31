@@ -44,25 +44,28 @@
     - .py .ipynb：根目录为执行器powershell所指向的目录，一般同vscode
 
 # 软件安装
-- PC软件
-    |软件类型|软件安装|
-    |-|-|
-    |社交|微信(安装后文件保存位置设置为C:\gyq\mydocuments)；QQ(安装前数据文件位置选择C:\gyq\mydocuments)；腾讯会议；|
-    |基本工具|winrar、鲁大师、chrome、WPS、网易有道词典、百度云、迅雷、迅雷看看、剪映、ShareX免费OCR、Ditto同网共享粘贴板；git、Edge账号同步插件;|
-    |Anaconda|Anaconda路径(/anaconda3、/anaconda3/scripts、/anaconda3/library/bin、anaconda3\library\usr\bin、anaconda3\Library\mingw-w64\bin)添加到用户变量path中; |
-    |VSCode|[插件安装目录](#vsc)|
-    |Node.js||
-    |Epic||
-    |VS||
-    |Zotero|[常用插件](https://zhuanlan.zhihu.com/p/689468632)|
-    |VR|87VR助手、steam、steamVR、VD；网络(火狐浏览器、快斯特加速器)；|
-    |其他|pytorch+cuda+cudnn; SunloginClient(远程控制)；PDF Password Remover；优启通；Fiddler、SAS、mysql、appium、Android Studio、wkhtmltox（可用python调用html转pdf）; Calibre/CAJViewer/ABBYY FineReader破解;|
-    |免安装| Pandoc; ffmpeg; 科学上网(winXray、v2rayN、Clash、Qv2ray)；硬件管理(图吧工具箱；CrystalDiskInfo；3DMark)；网站视频下载(flvcd_youtube)。|
-    |个人站点|gg-yq.github.io:基于github+giscus，用docsify创建|
+- PC
+    |类型|Win &cross;|Linux|
+    |-|-|-|
+    |浏览器Edge|&check;|&check;|
+    |社交: 微信(安装后文件保存位置设置为C:\xxx\mydocuments)；QQ(安装前数据文件位置选择C:\xxx\mydocuments)；腾讯会议；|&check;_官网|&check;_官网|
+    |Office|WPS;MSOffice|LibreOffice|
+    |百度云|&check;_官网|&check;_官网|
+    |[Zotero](https://zhuanlan.zhihu.com/p/689468632)|&check;|&check;_snap|
+    |git|&check;|&check;|
+    |[VSCode](#vsc)|&check;|&check;_snap|
+    |Node.js|&check;|&check;|
+    |Docker|&check;|&check;|
+    |conda;Anaconda;|&check;|&check;|
+    |blender|&check;|&check;_snap|
+    |下载|迅雷|aMule(&check;_snap);Tranmission;|
+    |基本工具|网易有道词典、winrar、鲁大师、剪映、ShareX免费OCR、Ditto同网共享粘贴板|Vim;|
+    |其他: Picgo图床、Epic、VS、steam、steamVR、VD|87VR助手、SunloginClient(远程控制)；PDF Password Remover；优启通；Fiddler、SAS、mysql、appium、Android Studio、wkhtmltox（可用python调用html转pdf）; Calibre/CAJViewer/ABBYY FineReader破解;||
+    |免安装|Pandoc; ffmpeg; 科学上网(winXray、v2rayN、Clash、Qv2ray)；硬件管理(图吧工具箱；CrystalDiskInfo；3DMark)；网站视频下载(flvcd_youtube)。|
+    |个人站点gg-yq.github.io:github+giscus+docsify|
     |学术研究|researcher-app|
-    |p2p架构通讯工具|Ring；Skype|
 
-- 手机软件  
+- Mobile
     淘宝、支付宝、UC、高德地图、咸鱼、拼多多、京东、多点、美团、滴滴、58；  
     微信、QQ、腾讯会议、订阅号助手；  
     百度网盘、网易公开课、网易云音乐；  
