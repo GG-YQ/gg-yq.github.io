@@ -985,6 +985,11 @@ gpu版本训练时可以选择gpu或者cpu进行训练，cpu版本只能选择cp
 
 -   11、xlrd、xlwt：专门用于xlsx文件的读写
 
+## 网络
+- WebSocket 连接
+    - websockets库是基于 asyncio 的异步库，适用于异步编程环境
+    - websocket-client库是同步的，更适合于使用传统的同步编程方式
+
 ## PDF识别
 
 pdfminer：提取文本
